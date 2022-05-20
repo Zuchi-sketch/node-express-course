@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 const app = express();
 
@@ -13,8 +14,14 @@ app.get('/users', function(req,res){
     })
 })
 
-
-
+app.get('/users/:id', function(req,res){
+    console.log(req.params.id)
+    response.json({
+        success: true,
+        message: 'got one user',
+        user: req.params.id
+    })
+})
 
 
 
